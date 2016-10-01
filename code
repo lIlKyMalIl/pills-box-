@@ -4,7 +4,7 @@ const int buzzerPin = 10; //το pin στο οποίο είναι συνδεδε
 const int ledOnePin = 9; //το pin στο οποίο είναι συνδεδεμένο το λαμπάκι για το πρώτο καπάκι
 const int ledTwoPin = 7; //το pin στο οποίο είναι συνδεδεμένο το λαμπάκι για το δεύτερο καπάκι
 
-const unsigned long INTERVAL = 5000; //Ο χρόνος που μεσολαβεί μεταξύ τη λήψη δύο δοσολογιών των φαρμάκων
+const unsigned long INTERVAL = 10000; //Ο χρόνος που μεσολαβεί μεταξύ τη λήψη δύο δοσολογιών των φαρμάκων
 unsigned long previousTime = 0; //Η χρονική στιγμή όπου έγινε η λήψη του προηγούμενου φαρμάκου
 boolean buzzerRinging = false; //μεταβλητή που αντιπροσωπεύει εάν ο βομβητής χτυπάει ή όχι
 
@@ -55,15 +55,12 @@ void loop() {
       digitalWrite(ledTwoPin, HIGH);
       tone(buzzerPin, 1000);
       buzzerRinging = true;
-      //Αύξησε την τιμή της μεταβλητής kapaki κατά ένα. Δηλαδή η μεταβλητή kapaki να γίνει ότι ήταν πριν συν 1.
-      kapaki = kapaki + 1;
     }
     int currentDistance2 = sensor2.getDistance();
     if (distance2 != currentDistance2) {
       digitalWrite(ledTwoPin, LOW);
       noTone(buzzerPin);
       buzzerRinging = false;
-      kapaki = kapaki + 1;
       //ΑΝ το kapaki είναι μεγαλύτερο από το 26 (προς το παρόν έχουμε μόνο τρία καπάκια)
       if (kapaki >= 2) {
         //Αποθήκευσε στη μεταβλητή kapaki την τιμή 1 (δηλαδή να ξεκινήσει από την αρχή)
