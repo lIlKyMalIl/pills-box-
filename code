@@ -61,7 +61,7 @@ void loop() {
       digitalWrite(ledTwoPin, LOW);
       noTone(buzzerPin);
       buzzerRinging = false;
-      //ΑΝ το kapaki είναι μεγαλύτερο από το 26 (προς το παρόν έχουμε μόνο τρία καπάκια)
+      //ΑΝ το kapaki είναι μεγαλύτερο από το 2 (προς το παρόν έχουμε μόνο τρία καπάκια)
       if (kapaki >= 2) {
         //Αποθήκευσε στη μεταβλητή kapaki την τιμή 1 (δηλαδή να ξεκινήσει από την αρχή)
         kapaki = 1;
